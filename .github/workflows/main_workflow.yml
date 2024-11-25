@@ -8,17 +8,17 @@ jobs:
       runs-on: ubuntu-latest
   
       steps:
-        # Step 1: Checkout code
+        # Step 1.
         - name: Checkout code
           uses: actions/checkout@v3
   
-        # Step 2: Linter execution
+        # Step 2.
         - name: Linter execution
           uses: github/super-linter@v4
           env: 
             DEFAULT_BRANCH: nodejs_linter_job
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-            LINTER_RULES_PATH: ./../../
+            LINTER_RULES_PATH: /
             JAVASCRIPT_ES_CONFIG_FILE: .eslintrc.json
-            VALIDATE_JAVASCRIPT_ES: 'true'  # Envolviendo en comillas para asegurar sintaxis correcta
+            VALIDATE_JAVASCRIPT_ES: 'true'  
            
