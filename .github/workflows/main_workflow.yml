@@ -1,7 +1,7 @@
 on:
     push:
       branches: 
-        - nodejs_linter_job
+        - nodejs_jest_job
   
 jobs:
     linter-execution:
@@ -10,7 +10,7 @@ jobs:
       steps:
         # Step 1.
         - name: Checkout code
-          uses: actions/checkout@v3
+          uses: actions/checkout@v4
   
         # Step 2.
         - name: Linter execution
@@ -21,4 +21,19 @@ jobs:
             LINTER_RULES_PATH: /
             JAVASCRIPT_ES_CONFIG_FILE: .eslintrc.json
             VALIDATE_JAVASCRIPT_ES: 'true'  
-           
+    test-execution:
+      runs-on: ubuntu-latest
+      needs: linter-execution
+
+      steps: 
+        #Step 1
+        - name: Checkout code
+          uses: actions/checkout@v4
+
+        #Step 2
+        - name: Install Jest
+          run: npm install jest --legacy-peer-deps
+
+        #Step 3
+        - name: Run Jest Test
+          run: npm run test
