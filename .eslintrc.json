@@ -2,7 +2,8 @@
     "env": {
         "browser": true,
         "es2021": true,
-        "node": true
+        "node": true,
+        "jest": true
     },
     "extends": "eslint:recommended",
     "parserOptions": {
@@ -15,6 +16,6 @@
         "no-extra-semi": "warn",
         "no-console": "off",
         "eqeqeq": "error",
-        "curly": "error"
+        "curly": "error"        
     }
 }
