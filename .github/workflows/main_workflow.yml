@@ -6,11 +6,19 @@ on:
 jobs:
     linter-execution:
       runs-on: ubuntu-latest
+
+      strategy:
+        matrix:
+          node: [16, 18, 20]
   
       steps:
         # Step 1.
         - name: Checkout code
           uses: actions/checkout@v4
+
+        # Step Intermedi
+        - name: Setting node version
+          uses: actions/setup-node@v3
   
         # Step 2.
         - name: Linter execution
@@ -26,14 +34,14 @@ jobs:
       needs: linter-execution
 
       steps: 
-        #Step 1
+        #Step 1 | Job 1
         - name: Checkout code
           uses: actions/checkout@v4
 
-        #Step 2
+        #Step 2 | Job 2
         - name: Install Jest
           run: npm install jest --legacy-peer-deps
 
-        #Step 3
+        #Step 3 | Job 3
         - name: Run Jest Test
           run: npm run test
