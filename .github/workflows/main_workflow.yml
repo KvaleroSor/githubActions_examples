@@ -1,7 +1,7 @@
 on:
     push:
       branches: 
-        - nodejs_jest_job
+        - gitbub_actions_readme_2
     
 permissions:
   contents: write
