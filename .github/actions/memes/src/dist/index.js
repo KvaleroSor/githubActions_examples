@@ -27551,12 +27551,7 @@ async function main() {
         const image = resultado_test === 'success' ? 'stonks' : 'sarcasticbear';
         const url = `https://api.memegen.link/images/${image}/${resultado_test === 'success' ? todo_ok : todo_mal}.png`;
 
-        //Ajustant ruta del OLDREADME
-        const oldReadmePath = path.join(process.env.GITHUB_WORKSPACE, '../OldREADME.md'); 
-        // const readmePath = path.join(process.env.GITHUB_WORKSPACE, 'README.md');
-        console.log('Attempting to read:', oldReadmePath);
-
-        const oldReadme = await fs.readFile('../OldREADME.md', 'utf8');
+        const oldReadme = await fs.readFile('./OldREADME.md', 'utf8');
         const newReadme = oldReadme + `<img src="${url}" />`;
 
         await fs.writeFile('./README.md', newReadme);
