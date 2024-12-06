@@ -2,6 +2,9 @@ on:
     push:
       branches: 
         - nodejs_jest_job
+    
+permissions:
+  contents: write
   
 jobs:
     linter-execution:
