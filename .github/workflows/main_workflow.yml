@@ -1,7 +1,7 @@
 on:
-    push:
-      branches: 
-        - gitbub_actions_readme_2
+  push:
+    branches: 
+      - gitbub_actions_readme_2
     
 permissions:
   contents: write
@@ -9,7 +9,6 @@ permissions:
 jobs:
     linter-execution:
       runs-on: ubuntu-latest
-  
       steps:
         # Step 1.
         - name: Checkout code
@@ -24,6 +23,7 @@ jobs:
         #     LINTER_RULES_PATH: /
         #     JAVASCRIPT_ES_CONFIG_FILE: .eslintrc.json
         #     VALIDATE_JAVASCRIPT_ES: 'true'  
+
     test-execution:
       runs-on: ubuntu-latest
       needs: linter-execution
@@ -40,11 +40,11 @@ jobs:
         #Step 3
         - name: Run Jest Test
           run: npm run test
+
     modify_readme: 
       runs-on: ubuntu-latest
       if: always()
       needs: test-execution
-
       steps:
         # Step 1.
         - name: Checkout code
