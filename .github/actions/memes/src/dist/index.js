@@ -27553,7 +27553,7 @@ async function main() {
 
         console.log('Current working directory:', process.cwd());
 
-        const oldReadme = await fs.readFile('./../../../../../../../OldREADME.md', 'utf8');
+        const oldReadme = await fs.readFile('../OldREADME.md', 'utf8');
         const newReadme = oldReadme + `<img src="${url}" />`;
 
         await fs.writeFile('./README.md', newReadme);
