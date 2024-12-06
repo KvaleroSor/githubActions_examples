@@ -1,0 +1,17 @@
+name: 'Read Readme'
+description: 'Llegir el readme del repositori i afegir un meme amb una frase'
+inputs: 
+  frase-positiva: 
+    description: 'Frase positiva per al meme'
+    required: true
+    default: 'Los tests han funcionado y lo sabes'
+  frase-negativa: 
+    description: 'Frase negativa per al meme'
+    required: true
+    default: 'Los tests han fallado y lo sabes'
+  resultat-tests:
+    description: 'Emgamatzemar el valor del test del resultat de l´execució del job'
+    required: true
+runs:
+  using: "node20"
+  main: "src/dist/index.js"
