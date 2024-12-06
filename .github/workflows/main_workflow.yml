@@ -37,3 +37,32 @@ jobs:
         #Step 3
         - name: Run Jest Test
           run: npm run test
+    modify_readme: 
+      runs-on: ubuntu-latest
+      if: always()
+      needs: test-execution
+
+      steps:
+        # Step 1.
+        - name: Checkout code
+          uses: actions/checkout@v4
+        
+        # Step 2.
+        - name: modificant readme amb memes
+          uses: ./.github/actions/memes
+          with:
+            frase-positiva: "Los tests han funcionado y lo sabes"
+            frase-negativa: "Los tests han fallado y lo sabes"
+            resultat-tests: ${{ needs.test-execution.result}}
+            # resultat-tests: "success"
+        
+        #Step 3.
+        - name: Commit i push
+          uses: EndBug/add-and-commit@v9
+          with:
+            add: "."
+            author_name: "Kike Valero"
+            author_email: "kvalerosor@hotmail.com"
+            message: "Modificant readme"
+            push: true
+            github_token: ${{secrets.GITHUB_TOKEN}}
