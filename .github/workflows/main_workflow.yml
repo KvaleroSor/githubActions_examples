@@ -1,7 +1,7 @@
 on:
   push:
     branches: 
-      - gitbub_action_readme
+      - github_action_readme
     
 permissions:
   contents: write
