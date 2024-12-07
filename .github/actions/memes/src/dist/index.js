@@ -27557,7 +27557,7 @@ async function main() {
         await fs.writeFile('./README.md', newReadme);
         process.exit(0);
     }catch(e){
-        core.setFailed(e.message);
+        core.setFailed(e);
     }
 }
 
